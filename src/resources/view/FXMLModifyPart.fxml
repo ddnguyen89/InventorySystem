@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+* Program: FXMLModifyPart.fxml
+* Author: Davis Nguyen
+* Date: 8/21/2019 created
+* Updated: 8/26/2019 added functions
+*
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="550.0" stylesheets="@../css/InventorySystem.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventorysystem.controller.FXMLModifyPartController">
+    <children>
+        <BorderPane prefHeight="550.0" prefWidth="550.0">
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="60.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="titleLabel" text="Modify Part" textFill="#3f5777">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <RadioButton fx:id="inHouseR_BTN" mnemonicParsing="false" onAction="#radioButtonAction" text="In-House">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="toggleGroup" />
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="outsourcedR_BTN" mnemonicParsing="false" onAction="#radioButtonAction" selected="true" text="Outsourced" toggleGroup="$toggleGroup" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <BorderPane.margin>
+                        <Insets left="20.0" top="10.0" />
+                    </BorderPane.margin>
+                </HBox>
+            </top>
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0" spacing="30.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="saveBTN" mnemonicParsing="false" onAction="#savePart" prefHeight="45.0" prefWidth="100.0" text="Save" />
+                        <Button fx:id="cancelBTN" mnemonicParsing="false" onAction="#sceneCancel" prefHeight="45.0" prefWidth="100.0" text="Cancel" />
+                    </children>
+                    <BorderPane.margin>
+                        <Insets bottom="25.0" right="25.0" />
+                    </BorderPane.margin>
+                </HBox>
+            </bottom>
+            <center>
+                <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="132.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="298.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <BorderPane.margin>
+                        <Insets left="80.0" right="60.0" />
+                    </BorderPane.margin>
+                    <children>
+                        <Label fx:id="idLabel" text="ID" />
+                        <Label fx:id="nameLabel" text="Name" GridPane.rowIndex="1" />
+                        <Label fx:id="stockLabel" text="Inv" GridPane.rowIndex="2" />
+                        <Label fx:id="priceLabel" text="Price/Cost" GridPane.rowIndex="3" />
+                        <Label fx:id="maxLabel" text="Max" GridPane.rowIndex="4" />
+                        <Label fx:id="compMachLabel" text="Company Name" GridPane.rowIndex="5" />
+                        <TextField fx:id="idTF" disable="true" prefHeight="45.0" prefWidth="100.0" text="Auto Gen - Disabled" GridPane.columnIndex="1">
+                            <font>
+                                <Font name="System Italic" size="15.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="130.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="nameTF" prefHeight="45.0" promptText="Part Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Italic" size="15.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="130.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="stockTF" onKeyPressed="#numberFilter" prefHeight="45.0" promptText="Inv" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Italic" size="15.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="130.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="priceTF" onKeyPressed="#numberFilter" prefHeight="45.0" promptText="Price/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <font>
+                                <Font name="System Italic" size="15.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="130.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <children>
+                                <TextField fx:id="maxTF" onKeyPressed="#numberFilter" prefHeight="45.0" prefWidth="110.0" promptText="Max">
+                                    <font>
+                                        <Font name="System Italic" size="15.0" />
+                                    </font>
+                                </TextField>
+                                <Label fx:id="minLabel" text="Min" />
+                                <TextField fx:id="minTF" onKeyPressed="#numberFilter" prefHeight="45.0" prefWidth="110.0" promptText="Min">
+                                    <font>
+                                        <Font name="System Italic" size="15.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </HBox>
+                        <TextField fx:id="compMachTF" onKeyPressed="#numberFilter" prefHeight="45.0" prefWidth="100.0" promptText="Comp Nm" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <font>
+                                <Font name="System Italic" size="15.0" />
+                            </font>
+                            <GridPane.margin>
+                                <Insets right="155.0" />
+                            </GridPane.margin>
+                        </TextField>
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

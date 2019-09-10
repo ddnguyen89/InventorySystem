@@ -1,0 +1,53 @@
+/*
+ * Program: InventorySystem.css
+ * Author: Davis Nguyen
+ * Date: 8/19/2019 created
+ * Updated: 8/26/2019 added boarder around borderpane
+ *
+ */
+
+/* set background color for application */
+.root {
+    -fx-background-color: #D8D8D8;
+}
+
+/* set boarders for vbox */
+#partsVbox, #productsVbox {
+    -fx-border-style: solid;
+    -fx-border-radius: 7;
+}
+
+/* set boarders for borderPane */
+#borderPane {
+    -fx-border-style: solid;
+    -fx-border-radius: 7;
+}
+
+/* set style for buttons, border + linear gradient */
+.button {
+    -fx-border-style: solid;
+    -fx-border-radius: 3;
+    -fx-background-color: #707070,
+        linear-gradient(#fcfcfc, #f3f3f3),
+        linear-gradient(#f2f2f2 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+}
+
+/* add border to text input field */
+.text-field {
+    -fx-border-style: solid;
+}
+
+/* remove bold from tableview headers and align them left */
+.table-view .label{
+    -fx-alignment: center-left;
+    -fx-font-weight: normal;
+}
+
+/* makes any unused table row cells transparent */
+.table-row-cell:empty {
+    -fx-background-color: transparent;
+}
+ 
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}
